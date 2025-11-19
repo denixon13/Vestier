@@ -1,0 +1,48 @@
+{% load static %}
+<footer class="site-footer">
+
+        <nav class="contenedor navegacion-footer">
+
+            <div class="info-footer">
+                <a class="copyright" href="#">©2025 Vestier</a>
+
+                <ul class="politicas-footer">
+                    <li class="politica-footer">
+                        <a href="{% url 'politica' %}">· Politica de reembolso</a>
+                    </li>
+                    <li class="politica-footer">
+                        <a href="{% url 'politica' %}">· Politica de privacidad</a>
+                    </li>
+                </ul>
+            </div>
+            
+                
+            <ul class="redes-footer">
+                <li class="red-footer">
+                    <a href="#">
+                        <ion-icon name="logo-facebook"></ion-icon>
+                    </a>
+                </li>
+                <li class="red-footer">
+                    <a href="#">
+                        <ion-icon name="logo-twitter"></ion-icon>
+                    </a>
+                </li>
+                <li class="red-footer">
+                    <a href="#">
+                        <ion-icon name="logo-instagram"></ion-icon>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </footer>
+
+
+    <script src="{% static 'build/js/app.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+</html>

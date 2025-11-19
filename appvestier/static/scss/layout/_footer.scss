@@ -1,0 +1,75 @@
+.site-footer {
+    height: 9rem;
+    border-top: 1px solid $grisClaro;
+    margin-top: 1.5rem;
+
+    .navegacion-footer {
+        display: flex;
+        fleX-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1rem;
+        gap: 2rem;
+        height: 100%;
+    }
+}
+
+.info-footer{
+        display: flex;
+        font-size: 1.2rem;
+        gap: 1rem;
+
+        .copyright{
+            transition: all 0.3s ease-in-out;
+        }
+
+        @include phone{
+            flex-direction: column;
+            align-items: center;
+            font-size: 1.1rem;
+
+            .copyright{
+                font-size: 1.5rem;
+            }
+        }
+
+        a{
+            color: $negro;
+        }
+
+        .politicas-footer{
+            display: flex;
+            padding: 0;
+            gap: 1rem;
+
+            .politica-footer{
+                transition: all 0.3s ease-in-out;
+            }
+
+            
+        }
+
+        .copyright:hover, .politica-footer:hover{
+           border-bottom: 1px solid $gris;
+        }
+}
+
+    .redes-footer{
+        display: flex;
+        padding: 0;
+        gap: 1rem;
+
+        .red-footer{
+            transition: all 0.3s ease-in-out;
+
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+
+        ion-icon{
+            font-size: 2rem;
+            color: $negro;
+        }
+
+} 

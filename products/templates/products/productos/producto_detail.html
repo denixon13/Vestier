@@ -1,0 +1,58 @@
+{% extends "appvestier/base/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <section class="contenedor ">
+
+        <div class="grid-producto-detail">
+
+            <div class="imagen-productoDetail">
+                <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+            </div>
+
+
+            <div class="informacion-productoDetail">
+
+                <p class="nombre-logo">VestierStore</p>
+                <h2 class="nombre-productoDetail">{{ producto.nombre }}</h2>
+                <p class="precio-productoDetail">${{ producto.precio }}</p>
+
+                <form method="POST" action="{% url 'carro:agregar_desde_formulario' producto.id %}" class="formulario-producto">
+                    {% csrf_token %}
+
+                    <!-- Selector de tallas -->
+                    <div class="talla-selector">
+                        <label class="legend-form">Talla</label>
+                        <div class="tallas">
+                        {% for talla in tallas %}
+                            {% if talla.stock > 0 %}
+                            <input type="radio" name="atributo_id" id="talla_{{ talla.valor }}" value="{{ talla.id }}"
+                                    data-stock="{{ talla.stock }}" onclick="actualizarStock(this)" required>
+                            <label class="talla" for="talla_{{ talla.valor }}">{{ talla.valor }}</label>
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Selector de cantidad -->
+                    <div class="cantidad-selector">
+                        <label class="legend-form" for="cantidad">Cantidad</label>
+                        <div class="contador">
+                            <button type="button" onclick="decrementar()">−</button>
+                            <input type="number" name="cantidad" id="cantidad" min="1" value="1" required>
+                            <button type="button" onclick="incrementar()">+</button>
+                        </div>
+                        <small id="stock-info" style="display:block; margin-top:5px;"></small>
+                    </div>
+
+                    <button type="submit" class="btn-agregar-carrito">Agregar al carrito</button>
+                </form>  
+
+            </div>                  
+
+        </div>
+    </section>
+
+{% endblock %}

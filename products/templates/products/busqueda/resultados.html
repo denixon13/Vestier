@@ -1,0 +1,34 @@
+{% include "appvestier/base/header.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="contenedor">
+
+        <h3 class="subtitulo-h3">Resultados para "{{ query }}"</h3>
+
+        {% if resultados %}
+            <div class="grid-productos">
+                {% for producto in resultados %}
+                    <div class="producto">
+                            <a href="{% url 'products:producto_detail' producto.id %}">
+                                <img src="{{ producto.imagen.url }}" alt="{{producto.nombre}}">
+                                <div class="producto-informacion">
+                                    <a class="producto-nombre" href="#"> {{producto.nombre}} </a>
+                                    <p class="producto-precio">${{ producto.precio}}</p>
+                                </div>
+                            </a>
+                    </div>  <!--.producto-->  
+                {% endfor %}
+            </div> <!--Grid-productos-->
+        {% else %}
+            <p>No se encontraron productos.</p>
+        {% endif %}
+
+    </div>
+
+
+{% endblock %}
+
+{% include "appvestier/base/footer.html" %}

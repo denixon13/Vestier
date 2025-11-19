@@ -1,0 +1,53 @@
+{% extends "appvestier/base/base.html"%}
+
+{% load static %}
+
+{% block content %}
+
+<section class="contenedor carrito">
+  <h3>Mi carrito</h3>
+
+  {% if items %}
+  <table class="tabla-carrito">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Talla</th>
+        <th>Cantidad</th>
+        <th>Precio unitario</th>
+        <th>Total</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in items %}
+        <tr>
+          <td>{{ item.producto.nombre }}</td>
+          <td>{{ item.atributo.valor }}</td>
+          <td>{{ item.cantidad }}</td>
+          <td>Bs {{ item.producto.precio }}</td>
+          <td>Bs {{ item.subtotal|floatformat:2 }}</td>
+          <td>
+            <form method="POST" action="{% url 'carro:eliminar' item.producto.id item.atributo.id %}">
+              {% csrf_token %}
+              <button type="submit" class="btn-cerrar-sesion">Eliminar</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="resumen-carrito">
+    <p><strong>Total general:</strong> $ {{ total|floatformat:2 }}</p>
+    <a href="{% url 'carro:finalizar_compra' %}" class="btn-sesion">Finalizar compra</a>
+  </div>
+
+  {% else %}
+    <p>Tu carrito está vacío.</p>
+    <a href="{% url 'products:all_products' %}">Explorar productos</a>
+  {% endif %}
+
+</section>
+
+{% endblock %}

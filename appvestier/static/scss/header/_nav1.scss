@@ -1,0 +1,62 @@
+.navegacion1{
+    border-bottom: 0.1rem solid $grisClaro;
+
+
+    .contenedor-contactos{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+
+    }
+
+    ion-icon{
+        color: $negro;
+        font-size: 1.5rem;
+    }
+    
+    p{
+        font-size: 1.2rem;
+        @include phone{
+            font-size: 1rem;
+        }
+    }
+
+    
+}
+
+.menu-contactos{
+        display: flex;
+        gap: 1.5rem;
+        padding: 0;
+
+        .links-contactos{
+            transition: all 0.3s ease 0s;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+
+        .link-contacto{
+            display: flex;
+            align-items: center;
+            gap: .2rem;
+        }
+}
+
+.menu-redes{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+
+        .links-redes{
+            transition: all 0.3s ease 0s;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    
+    }
+
+

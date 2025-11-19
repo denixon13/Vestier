@@ -1,0 +1,164 @@
+.grid-producto-detail{
+    width: 100%;
+    height: 100%;
+    margin-top: 4rem;
+
+    @include grid(2, 4rem);
+
+    @include tablet{
+        @include grid(1, 1.5rem);
+    }
+
+}
+
+.imagen-productoDetail{
+    width: 70%;
+    height: 85%;
+    border-radius: 4rem;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.3s ease;
+    }
+
+    img:hover{
+        transform: scale(1.1);
+    }
+}
+
+.informacion-productoDetail{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .nombre-logo{
+        font-size: 1.5rem;
+        color: $verdeClaro;
+        text-transform: uppercase;
+    }
+
+    .nombre-productoDetail{
+        font-size: 5rem;
+        font-weight: bold;
+        color: $verdeOscuro;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .precio-productoDetail{
+        font-size: 2.5rem;
+        line-height: 1.5;
+        color: $verdeOscuro;
+    }
+
+    
+}
+
+.btn-agregar-carrito{
+    width: 80%;
+    height: 5rem;
+    border-radius: 3rem;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: $verdeOscuro;
+    color: $blanco;
+    border: none;
+    text-transform: uppercase;
+    margin-top: 2rem;
+
+    &:hover{
+        background-color: $verdeClaro;
+        transform: scale(1);
+    }
+}
+
+.formulario-producto{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.talla-selector{
+
+    .tallas{
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    input[type="radio"]{
+        display: none;
+    }
+
+    .talla{
+        padding: .8rem 1.6rem;
+        border: 1px solid $verdeOscuro;
+        border-radius: 1.8rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        font-size: 1.5rem;
+        color: $verdeOscuro;
+        text-transform: uppercase;
+    }
+
+    input[type="radio"]:checked + .talla{
+        background-color: $verdeOscuro;
+        color: $blanco;
+    }
+}
+
+.cantidad-selector{
+    .contador{
+        width: 100%;
+        max-width: 12rem;
+        height: 5rem;
+        border-radius: 2rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 1.5rem;
+        border: 1px solid $verdeOscuro;
+    }
+
+    button{
+        color: $verdeOscuro;
+        font-size: 2rem;
+        width: 30%;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    input[type="number"]{
+        width: 40%;
+        height: 100%;
+        outline: none;
+        font-size: 1.5rem;
+        text-align: center;
+        color: $verdeOscuro;
+        border: none;
+        -moz-appearance: textfield; /* Elimina los botones en Firefox */
+        -webkit-appearance: none; /* Elimina los botones en Chrome */
+        appearance: none; /* Elimina los botones en otros navegadores */
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+
+}
+
+.legend-form{
+    font-size: 1.4rem;
+    color: $verdeClaro;
+}

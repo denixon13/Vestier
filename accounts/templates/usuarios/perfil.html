@@ -1,0 +1,41 @@
+{% extends "appvestier/base/base.html"%}
+
+{% load static %}
+
+{% block content %}
+
+<section class="contenedor miPerfil">
+
+    <div>
+        <h3>Bienvenido, {{ request.user.username }}</h3>
+        <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn-cerrar-sesion">Cerrar sesión</button>
+        </form>
+    </div>
+    
+
+    <div class="perfil">
+        <h3>Información de perfil</h3>
+        <p class="nombre-apellido">Nombre: {{ usuario.first_name }} {{ usuario.last_name }}</p>
+        <p>Email: {{ usuario.email }}</p>
+    </div>
+
+    <div class="pedidos">
+        <h3>Mis pedidos</h3>
+        {% if usuario.pedido_set.all %}
+            <ul>
+            {% for pedido in usuario.pedido_set.all %}
+                <li>Pedido #{{ pedido.id }} - {{ pedido.fecha }} - {{ pedido.estado }}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No tienes pedidos aún.</p>
+        {% endif %}
+    </div>
+
+</section>
+
+
+{% endblock %}
+

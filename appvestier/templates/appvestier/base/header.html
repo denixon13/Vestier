@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vestier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'build/css/app.css' %}">
+
+</head>
+<body>
+
+   <div>
+        <div class="navegacion1">
+            <nav class="contenedor contenedor-contactos">
+                <ul class="menu-contactos">
+                    <li class="links-contactos">
+                        <a class="link-contacto" href="#">
+                            <ion-icon name="paper-plane-outline"></ion-icon>
+                            <p>Puerto Ordaz, Caimito 2</p>
+                        </a>
+                    </li>
+                    <li class="links-contactos">
+                        <a class="link-contacto" href="#">
+                            <ion-icon name="phone-portrait-outline"></ion-icon>
+                            <p>0424-9716966</p>
+                        </a>
+                    </li>
+                </ul> <!--menu-contactos-->
+                <ul class="menu-redes">
+                    <li class="links-redes">
+                        <a class="item-redes" href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                    </li>
+                    <li class="links-redes">
+                        <a class="item-redes" href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                    </li>
+                    <li class="links-redes">
+                        <a class="item-redes" href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                    </li>
+                </ul><!--menu-redes-->
+            </nav>
+        </div> <!--navegacion1-->
+    </div>
+
+    <header>
+        
+       <div>
+            <div class="contenedor navegacion2">
+                <a class="logo" href="{% url 'home' %}">
+                    Vestier<span>Store</span>
+                </a>
+
+                <nav class="menu-opciones">
+                    <ul>
+                        <li>
+                            <a class="opciones" class="home" href="{% url 'home' %}">Inicio</a>
+                        </li>
+
+                        <li>
+                            <a class="opciones" href="{% url 'products:all_products'%}">Productos</a>
+
+                        <li>
+                            <a class="opciones" href="{% url 'products:categorias' %}">Categorias</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="controles-usuario">
+                    <ion-icon name="search"></ion-icon>
+                    <a href="{% url 'carro:ver_carrito' %}">
+                        <ion-icon name="basket"></ion-icon>
+                    </a>
+                    
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'perfil' %}" class="usuario-trigger" id="btn-sign-up">
+                            <ion-icon name="person-circle-outline"></ion-icon>
+                            <span>{{ request.user.username }}</span>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn-sesion" id="btn-sign-up">sign up</a>
+                    {% endif %}
+
+                    
+
+                    <ion-icon id="btn-menu" name="menu"></ion-icon>
+                </div>
+            </div> <!--navegacion2-->
+       </div>
+   </header>
+
+   <div id="barra-busqueda" class="barra-busqueda">
+        <form class="formulario-busqueda" action="{% url 'products:buscar' %}" method="GET" class="form-busqueda">
+            <input class="barra" type="text" name="q" placeholder="Buscar productos..." required>
+            <button class="btn-buscar" type="submit">Buscar</button>
+            <button class="btn-cerrar" type="button" id="cerrar-busqueda">✖</button>
+        </form>
+    </div>

@@ -1,0 +1,147 @@
+.navegacion2{
+    height: 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+//logo
+.logo{
+    color: $negro;
+    font-size: 4rem;
+
+    span{
+        color: $verdeOscuro;
+    }
+}
+
+//menu de opciones
+.menu-opciones{
+    height: auto;
+
+
+    ul{
+        display: flex;
+        flex-direction: row;
+    }
+
+    li{
+        margin: 1.5rem;
+    }
+
+    .opciones{
+        color: $negro;
+        transition: color 0.2s ease;
+    }
+
+    .opciones:hover{
+        color: $verdeClaro;
+    }
+
+}
+
+ion-icon{
+  color: $verdeOscuro;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: color 0.2s ease; 
+}
+
+ion-icon:hover{
+  color: $verdeClaro; 
+}
+
+//controles de usuario
+.controles-usuario{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    order: 1;
+
+    
+    
+}
+
+//boton de registro
+.btn-sesion{
+
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: .5rem;
+        background-color: $verdeOscuro;
+        color: $blanco;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.5rem;
+        text-align: center;
+}
+
+.btn-sesion:hover{
+        background-color: $verdeClaro;
+}
+
+#btn-menu{
+        display: none;
+    }
+
+//responsive
+@include tablet {
+
+    #btn-menu{
+        display: block;
+    }
+
+
+    .menu-opciones{
+
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease;
+
+        ul{
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    .menu-opciones.mostrar{
+        margin-bottom: 1rem;
+        height: auto;
+        max-height: calc(100vh - 8rem);
+        overflow-y: auto;
+    }
+
+    .menu-opciones.min{
+        height: calc(100vh - 8rem);
+        overflow-y: auto;
+
+    }
+}
+
+
+@include phone{
+    .logo{
+        font-size: 2rem;
+    }
+}
+
+
+.usuario-trigger {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+
+  span{
+    color: $negro;
+  }
+}
+
+
+
+

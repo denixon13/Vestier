@@ -1,0 +1,70 @@
+.sesion-account{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a{
+        color: $verdeOscuro;
+    }
+}
+
+.formulario-account{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 50rem;
+    gap: 2rem;
+    margin-bottom: 2rem;
+
+    li{
+        list-style: circle;
+        margin-bottom: .5rem;
+    }
+
+    p{
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        
+    }
+
+    input{
+        border: 1px solid $verdeOscuro;
+        height: 4rem;
+        border-radius: 1rem;
+        
+    }
+
+    .btn-account{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        button{
+            width: 40%;
+            height: 4.5rem;
+            border-radius: 3rem;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            background-color: $verdeOscuro;
+            color: $blanco;
+            border: none;
+            text-transform: uppercase;
+
+            &:hover{
+                background-color: $verdeClaro;
+                transform: scale(1);
+            }
+        }
+    }
+}
+
+.errorlist.nonfield{
+    list-style: none;
+    padding: 2rem 4rem;
+    background-color:  $rojo;
+    border-radius: 1rem;
+    color: $blanco;
+
+}

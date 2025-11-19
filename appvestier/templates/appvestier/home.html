@@ -1,0 +1,63 @@
+{% extends "appvestier/base/base.html"%}
+
+{% load static %}
+
+{% block content %}
+
+<section class="contenedor-fondos inicio">
+        <div class="overlay">
+            <div class="contenedor contenido-inicio">
+                <p>MODA QUE DEFINE TU ESENCIA</p>
+
+                <h2>Obtenga un 30% de Descuento en Nuevos Productos</h2>
+
+                <a href="#" class="btn-sesion">Mostrar</a>
+            </div>
+        </div>
+    </section>
+
+    <section class=" contenedor grid-categorias">
+        {% for categoria in categorias|slice:"3" %}
+                <div class="categoria">
+                    <a class="img-categoria" href="{% url 'products:categoria_detail' categoria.id %}">
+                        <img src="{{ categoria.imagen.url }}" alt="{{categoria.nombre}}">
+                        <p> {{categoria.nombre}} </p>
+                    </a>
+                </div>
+        {% endfor %}
+    </section> <!--Categorias-->
+    
+
+    <main class="productos">
+
+        <div class="contenedor">
+
+            <h3>Tu moda, tu esencia</h3>
+
+            <div class="grid-productos">
+
+                {% for producto in productos%}
+
+                    <div class="producto">
+                        <a href="{% url 'products:producto_detail' producto.id %}">
+                            <img src="{{ producto.imagen.url }}" alt="{{producto.nombre}}">
+                            <div class="producto-informacion">
+                                <a class="producto-nombre" href="#"> {{producto.nombre}} </a>
+                                <p class="producto-precio">${{ producto.precio}}</p>
+                            </div>
+                        </a>
+                    </div>  <!--.producto-->
+
+                {% endfor %}
+                
+            </div> <!--Grid-productos-->
+        </div>
+
+        
+
+    </main>
+
+{% endblock %}
+
+
+    

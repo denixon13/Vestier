@@ -1,0 +1,38 @@
+{
+  "name": "vestier",
+  "version": "1.0.0",
+  "description": "tienda de prouctos",
+  "license": "ISC",
+  "author": "denixon",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch appvestier/static/scss:appvestier/static/build/css",
+    "gulp": "gulp dev",
+    "django": "python manage.py runserver",
+    "js": "gulp js",
+    "cssMin": "gulp cssMin",
+    "img": "gulp img",
+    "imgWebp": "gulp imgWebp",
+    "dev": "npm-run-all --parallel django sass gulp js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.3",
+    "@babel/preset-env": "^7.28.3",
+    "gulp": "^5.0.1",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-debug": "^5.0.1",
+    "gulp-imagemin": "^9.1.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-uglify": "^3.0.2",
+    "gulp-util": "^3.0.8",
+    "gulp-webp": "^5.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^10.0.0",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.90.0"
+  }
+}

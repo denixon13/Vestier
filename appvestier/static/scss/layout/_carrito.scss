@@ -1,0 +1,27 @@
+.carrito{
+       display: flex;
+       flex-direction: column;
+       gap: 2rem;
+
+       h3{
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 3rem;
+        color: $verdeOscuro;
+    }
+}
+
+.tabla-carrito{
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.resumen-carrito{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    a{
+        width: 20%;
+    }
+}

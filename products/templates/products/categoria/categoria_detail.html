@@ -1,0 +1,23 @@
+{% extends "appvestier/base/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+     <div class="contenedor">
+
+            <h3 class="subtitulo-h3">Selecciona para ti</h3>
+
+        <section class=" contenedor grid-categorias">
+            {% for subcategoria in subcategorias %}
+                    <div class="categoria">
+                        <a class="img-categoria" href="{% url 'products:subcategoria_detail' subcategoria.id %}">
+                            <img src="{{ subcategoria.imagen.url }}" alt="{{subcategoria.nombre}}">
+                            <p> {{subcategoria.nombre}} </p>
+                        </a>
+                    </div>
+            {% endfor %}
+        </section> <!--Categorias-->
+    </div>
+
+{% endblock %}
