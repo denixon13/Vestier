@@ -1,21 +1,3 @@
-// base
-@import 'base/variables';
-@import 'base/mixin';
-@import 'base/globales';
-@import 'base/normalize';
-
-// header
-@import 'header/nav1';
-@import 'header/nav2';
-@import 'header/busqueda';
-
-//layout
-@import 'layout/bg';
-@import 'layout/politica';
-@import 'layout/categorias';
-@import 'layout/footer';
-@import 'layout/productos';
-@import 'layout/productos_detail';
-@import 'layout/account';
-@import 'layout/perfil';
-@import 'layout/carrito';
+@use "base/index" as base;
+@use "header/index" as header;
+@use "layout/index" as layout;

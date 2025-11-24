@@ -1,3 +1,6 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+@use 'sass:color';
 
 .productos{
     padding-top: 2rem;
@@ -6,24 +9,24 @@
         text-transform: uppercase;
         font-weight: bold;
         margin-bottom: 3rem;
-        color: $verdeOscuro;
+        color: v.$verdeOscuro;
     }
 
 }
 
 .grid-productos{
 
-    @include grid(4, 1rem);
+    @include m.grid(4, 1rem);
 
-    @include tablet{
-        @include grid(2,1rem);
+    @include m.tablet{
+        @include m.grid(2,1rem);
     }
     
 }
 
 .producto{
-    background-color: lighten($grisClaro, 5);
-    border: 0.1rem solid darken($grisClaro, 10) ;
+    background-color: color.adjust(v.$grisClaro, $lightness: 5%);
+    border: 0.1rem solid color.adjust(v.$grisClaro, $lightness: -10%);
     border-radius: 1rem;
     transition: all 0.3s ease 0s;
 
@@ -43,12 +46,12 @@
         }
 
         .producto-nombre{
-            color: $verdeOscuro;
+            color: v.$verdeOscuro;
             font-weight: 500;
         }
 
         .producto-precio{
-            color: $verdeOscuro;
+            color: v.$verdeOscuro;
             font-weight: bold;
             font-size: 2rem;
         }
@@ -63,7 +66,7 @@
 
     .producto-nombre{
         
-        border-bottom: .1rem solid $verdeOscuro;
+        border-bottom: .1rem solid v.$verdeOscuro;
     }
 }
 

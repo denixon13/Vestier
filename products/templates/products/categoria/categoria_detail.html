@@ -12,7 +12,11 @@
             {% for subcategoria in subcategorias %}
                     <div class="categoria">
                         <a class="img-categoria" href="{% url 'products:subcategoria_detail' subcategoria.id %}">
+                            {% if subcategoria.imagen %}
                             <img src="{{ subcategoria.imagen.url }}" alt="{{subcategoria.nombre}}">
+                            {% else %}
+                            <img src="{% static '/img/no-image.png' %}" alt="No Image">
+                            {% endif %}
                             <p> {{subcategoria.nombre}} </p>
                         </a>
                     </div>

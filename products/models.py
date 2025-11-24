@@ -38,7 +38,6 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=200)
     descripcion = models.TextField(blank=True, null=True)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name='productos')
     subcategoria = models.ForeignKey(Subcategoria, on_delete=models.CASCADE, related_name='productos', blank=True, null=True)
     imagen = models.ImageField(upload_to='productos/', blank=True, null=True)
     creado = models.DateTimeField(auto_now_add=True)

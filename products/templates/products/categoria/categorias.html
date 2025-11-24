@@ -10,7 +10,11 @@
         {% for categoria in categorias %}
                 <div class="categoria">
                     <a class="img-categoria" href="{% url 'products:categoria_detail' categoria.id %}">
+                        {% if categoria.imagen %}
                         <img src="{{ categoria.imagen.url }}" alt="{{categoria.nombre}}">
+                        {% else %}
+                        <img src="{% static '/img/no-image.png' %}" alt="No Image">
+                        {% endif %}
                         <p> {{categoria.nombre}} </p>
                     </a>
                 </div>

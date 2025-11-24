@@ -1,16 +1,19 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
 .subtitulo-h3{
     font-weight: bold;
     text-transform: uppercase;
-    color: $verdeOscuro;
+    color: v.$verdeOscuro;
     margin-top: 1rem;
     text-align: center;
 }
 
 .grid-categorias{
 
-    @include grid(3,1rem);
+    @include m.grid(3,1rem);
 
-    @include phone{
+    @include m.phone{
         display:block;
     }
     
@@ -24,7 +27,7 @@
         transition: all 0.3s ease 0s;
         margin-bottom: 1rem;
 
-        @include tablet{
+        @include m.tablet{
             max-width: 40rem;
         }
     }
@@ -39,8 +42,8 @@
         left: 50%;
         width: 100%;
         transform: translate(-50%, -50%);
-        background-color: $verdeOscuro;
-        color: $blanco;
+        background-color: v.$verdeOscuro;
+        color: v.$blanco;
         font-weight: bold;
         text-transform: uppercase;
         text-align: center;

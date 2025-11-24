@@ -1,6 +1,9 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
 .site-footer {
     height: 9rem;
-    border-top: 1px solid $grisClaro;
+    border-top: 1px solid v.$grisClaro;
     margin-top: 1.5rem;
 
     .navegacion-footer {
@@ -23,7 +26,7 @@
             transition: all 0.3s ease-in-out;
         }
 
-        @include phone{
+        @include m.phone{
             flex-direction: column;
             align-items: center;
             font-size: 1.1rem;
@@ -34,7 +37,7 @@
         }
 
         a{
-            color: $negro;
+            color: v.$negro;
         }
 
         .politicas-footer{
@@ -50,7 +53,7 @@
         }
 
         .copyright:hover, .politica-footer:hover{
-           border-bottom: 1px solid $gris;
+           border-bottom: 1px solid v.$gris;
         }
 }
 
@@ -69,7 +72,7 @@
 
         ion-icon{
             font-size: 2rem;
-            color: $negro;
+            color: v.$negro;
         }
 
 } 

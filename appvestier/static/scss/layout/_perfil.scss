@@ -1,3 +1,6 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
 .miPerfil{
     display: flex;
     flex-direction: column;
@@ -6,7 +9,7 @@
     h3{
         font-weight: bold;
         text-transform: uppercase;
-        color: $verdeOscuro;
+        color: v.$verdeOscuro;
         margin: 0 0 1rem 0;
     }
 
@@ -19,8 +22,8 @@
     padding: 1rem 2rem;
     border: none;
     border-radius: .5rem;
-    background-color: $rojo;
-    color: $blanco;
+    background-color: v.$rojo;
+    color: v.$blanco;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 1.5rem;

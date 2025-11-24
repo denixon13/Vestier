@@ -1,3 +1,5 @@
+@use './variables' as v;
+@use './mixins' as m;
 
 html {
     font-size: 62.5%;
@@ -16,20 +18,20 @@ header {
 
 }
 body {
-    font-family: $fuente_principal;
+    font-family: v.$fuente_principal;
     font-optical-sizing: auto;
     font-style: normal;
-    color: $negro;
+    color: v.$negro;
     font-size: 1.6rem;
     
 }
 
 span{
-    font-family: $fuente_principal;
+    font-family: v.$fuente_principal;
 }
 
 p {
-    color: $negro;
+    color: v.$negro;
     line-height: 1.5;
 }
 

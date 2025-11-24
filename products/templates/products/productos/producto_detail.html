@@ -9,7 +9,11 @@
         <div class="grid-producto-detail">
 
             <div class="imagen-productoDetail">
+                {% if producto.imagen %}
                 <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+                {% else %}
+                <img src="{% static '/img/no-image.png' %}" alt="No Image">
+                {% endif %}
             </div>
 
 

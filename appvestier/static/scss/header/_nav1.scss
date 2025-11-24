@@ -1,5 +1,8 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
 .navegacion1{
-    border-bottom: 0.1rem solid $grisClaro;
+    border-bottom: 0.1rem solid v.$grisClaro;
 
 
     .contenedor-contactos{
@@ -11,13 +14,13 @@
     }
 
     ion-icon{
-        color: $negro;
+        color: v.$negro;
         font-size: 1.5rem;
     }
     
     p{
         font-size: 1.2rem;
-        @include phone{
+        @include m.phone{
             font-size: 1rem;
         }
     }

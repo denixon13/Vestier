@@ -14,9 +14,13 @@
 
                     <div class="producto">
                         <a href="{% url 'products:producto_detail' producto.id %}">
+                            {% if producto.imagen %}
                             <img src="{{ producto.imagen.url }}" alt="{{producto.nombre}}">
+                            {% else %}
+                            <img src="{% static '/img/no-image.png' %}" alt="No Image">
+                            {% endif %}
                             <div class="producto-informacion">
-                                <a class="producto-nombre" href="#"> {{producto.nombre}} </a>
+                                <a class="producto-nombre" href="{% url 'products:producto_detail' producto.id %}"> {{producto.nombre}} </a>
                                 <p class="producto-precio">${{ producto.precio}}</p>
                             </div>
                         </a>

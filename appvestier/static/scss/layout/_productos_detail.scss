@@ -1,12 +1,15 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
 .grid-producto-detail{
     width: 100%;
     height: 100%;
     margin-top: 4rem;
 
-    @include grid(2, 4rem);
+    @include m.grid(2, 4rem);
 
-    @include tablet{
-        @include grid(1, 1.5rem);
+    @include m.tablet{
+        @include m.grid(1, 1.5rem);
     }
 
 }
@@ -40,14 +43,14 @@
 
     .nombre-logo{
         font-size: 1.5rem;
-        color: $verdeClaro;
+        color: v.$verdeClaro;
         text-transform: uppercase;
     }
 
     .nombre-productoDetail{
         font-size: 5rem;
         font-weight: bold;
-        color: $verdeOscuro;
+        color: v.$verdeOscuro;
         text-transform: uppercase;
         margin: 0;
     }
@@ -55,7 +58,7 @@
     .precio-productoDetail{
         font-size: 2.5rem;
         line-height: 1.5;
-        color: $verdeOscuro;
+        color: v.$verdeOscuro;
     }
 
     
@@ -68,14 +71,14 @@
     font-size: 2rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    background-color: $verdeOscuro;
-    color: $blanco;
+    background-color: v.$verdeOscuro;
+    color: v.$blanco;
     border: none;
     text-transform: uppercase;
     margin-top: 2rem;
 
     &:hover{
-        background-color: $verdeClaro;
+        background-color: v.$verdeClaro;
         transform: scale(1);
     }
 }
@@ -101,18 +104,18 @@
 
     .talla{
         padding: .8rem 1.6rem;
-        border: 1px solid $verdeOscuro;
+        border: 1px solid v.$verdeOscuro;
         border-radius: 1.8rem;
         cursor: pointer;
         transition: background-color 0.3s ease, color 0.3s ease;
         font-size: 1.5rem;
-        color: $verdeOscuro;
+        color: v.$verdeOscuro;
         text-transform: uppercase;
     }
 
     input[type="radio"]:checked + .talla{
-        background-color: $verdeOscuro;
-        color: $blanco;
+        background-color: v.$verdeOscuro;
+        color: v.$blanco;
     }
 }
 
@@ -126,11 +129,11 @@
         justify-content: space-around;
         align-items: center;
         margin-top: 1.5rem;
-        border: 1px solid $verdeOscuro;
+        border: 1px solid v.$verdeOscuro;
     }
 
     button{
-        color: $verdeOscuro;
+        color: v.$verdeOscuro;
         font-size: 2rem;
         width: 30%;
         border: none;
@@ -144,7 +147,7 @@
         outline: none;
         font-size: 1.5rem;
         text-align: center;
-        color: $verdeOscuro;
+        color: v.$verdeOscuro;
         border: none;
         -moz-appearance: textfield; /* Elimina los botones en Firefox */
         -webkit-appearance: none; /* Elimina los botones en Chrome */
@@ -160,5 +163,5 @@
 
 .legend-form{
     font-size: 1.4rem;
-    color: $verdeClaro;
+    color: v.$verdeClaro;
 }

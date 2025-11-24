@@ -15,11 +15,9 @@ def categorias(request):
 def categoria_detail(request, categoria_id):
     categoria = Categoria.objects.get(id=categoria_id)
     subcategorias = Subcategoria.objects.filter(categoria=categoria)
-    productos = Producto.objects.filter(categoria=categoria)
     context = {
         'categoria': categoria,
         'subcategorias': subcategorias,
-        'productos': productos,
     }
     return render(request, 'products/categoria/categoria_detail.html', context)
 

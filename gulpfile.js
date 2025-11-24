@@ -27,23 +27,17 @@ export function js(done){
     done()
 }
 
-// tarea para compilar SASS
+// tarea para compilar y optimizar CSS
 export function css(done){
     src('appvestier/static/scss/app.scss') // archivo fuente
-        .pipe(sass()) // compilar
+        .pipe(sass({includePaths: ['appvestier/static/scss']}).on('error', sass.logError)) // compilar SCSS
+        .pipe(autoprefixer({cascade: false})) // prefijos
+        .pipe(cleanCSS({level: 2})) // minificar
         .pipe(dest('appvestier/static/build/css')) // carpeta destino
     done()
 }
 
-// tarea para optimizar CSS
-export function cssMin(done){
-    src('appvestier/static/build/css/app.css') // archivo fuente
-        .pipe(debug({title: 'CSS:'})) // ver en consola el archivo que se está optimizando
-        .pipe(autoprefixer({cascade: false})) // agregar prefijos
-        .pipe(cleanCSS({level: 2})) // minificar CSS
-        .pipe(dest('appvestier/static/build/css')) // carpeta destino
-    done()
-}
+
 
 // tarea para optimizar imágenes
 export function img(done){
@@ -72,5 +66,4 @@ export function dev(){
     watch('appvestier/static/js/app.js', js) // observar cambios en el archivo JS
     watch('appvestier/static/img/**/*', img) // observar cambios en las imágenes
     watch('appvestier/static/img/**/*', imgWebp) // observar cambios en las imágenes para convertir a WebP
-    //watch('appvestier/static/scss/**/*.scss', cssMin) // observar cambios en los archivos SASS para optimizar CSS
 }

@@ -4,10 +4,14 @@ from .models import Producto, Categoria, Subcategoria, TipoAtributo, AtributoPro
 # Register your models here.
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'precio', 'categoria', 'subcategoria', 'creado', 'actualizado')
+    list_display = ('nombre', 'precio', 'subcategoria', 'creado', 'actualizado')
     search_fields = ('nombre', 'categoria__nombre')
     readonly_fields = ('creado', 'actualizado')
-    list_filter = ('categoria', 'subcategoria', 'creado','actualizado')
+    list_filter = ('subcategoria', 'creado','actualizado')
+
+    def mostrar_categoria(self, obj):
+        return obj.subcategoria.categoria.nombre
+        mostrar_categoria.short_description = 'Categoría'
 
 class CategoriaAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'creado', 'actualizado')

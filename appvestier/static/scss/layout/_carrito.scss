@@ -1,3 +1,6 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
 .carrito{
        display: flex;
        flex-direction: column;
@@ -7,7 +10,7 @@
         text-transform: uppercase;
         font-weight: bold;
         margin-bottom: 3rem;
-        color: $verdeOscuro;
+        color: v.$verdeOscuro;
     }
 }
 

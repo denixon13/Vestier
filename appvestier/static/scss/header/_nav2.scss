@@ -1,3 +1,6 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
 .navegacion2{
     height: 8rem;
     display: flex;
@@ -9,11 +12,11 @@
 
 //logo
 .logo{
-    color: $negro;
+    color: v.$negro;
     font-size: 4rem;
 
     span{
-        color: $verdeOscuro;
+        color: v.$verdeOscuro;
     }
 }
 
@@ -32,25 +35,25 @@
     }
 
     .opciones{
-        color: $negro;
+        color: v.$negro;
         transition: color 0.2s ease;
     }
 
     .opciones:hover{
-        color: $verdeClaro;
+        color: v.$verdeClaro;
     }
 
 }
 
 ion-icon{
-  color: $verdeOscuro;
+  color: v.$verdeOscuro;
   font-size: 2.5rem;
   cursor: pointer;
   transition: color 0.2s ease; 
 }
 
 ion-icon:hover{
-  color: $verdeClaro; 
+  color: v.$verdeClaro; 
 }
 
 //controles de usuario
@@ -70,8 +73,8 @@ ion-icon:hover{
         padding: 1rem 2rem;
         border: none;
         border-radius: .5rem;
-        background-color: $verdeOscuro;
-        color: $blanco;
+        background-color: v.$verdeOscuro;
+        color: v.$blanco;
         text-transform: uppercase;
         font-weight: bold;
         font-size: 1.5rem;
@@ -79,7 +82,7 @@ ion-icon:hover{
 }
 
 .btn-sesion:hover{
-        background-color: $verdeClaro;
+        background-color: v.$verdeClaro;
 }
 
 #btn-menu{
@@ -87,7 +90,7 @@ ion-icon:hover{
     }
 
 //responsive
-@include tablet {
+@include m.tablet {
 
     #btn-menu{
         display: block;
@@ -121,7 +124,7 @@ ion-icon:hover{
 }
 
 
-@include phone{
+@include m.phone{
     .logo{
         font-size: 2rem;
     }
@@ -138,7 +141,7 @@ ion-icon:hover{
   gap: .5rem;
 
   span{
-    color: $negro;
+    color: v.$negro;
   }
 }
 

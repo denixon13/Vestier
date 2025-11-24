@@ -1,3 +1,6 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
 .barra-busqueda {
   position: fixed;
   top: 0;
@@ -29,8 +32,8 @@
 .btn-buscar {
   padding: 0.5rem 1rem;
   margin-left: 0.5rem;
-  background-color: $verdeOscuro;
-  color: $blanco;
+  background-color: v.$verdeOscuro;
+  color: v.$blanco;
   border: none;
   border-radius: 0.4rem;
   cursor: pointer;
@@ -39,8 +42,8 @@
 .btn-cerrar {
   padding: 0.5rem 1rem;
   margin-left: 0.5rem;
-  background-color: $rojo;
-  color: $blanco;
+  background-color: v.$rojo;
+  color: v.$blanco;
   border: none;
   border-radius: 4px;
   cursor: pointer;
