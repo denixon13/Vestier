@@ -132,7 +132,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'appvestier/static',
+    BASE_DIR / 'static',
 ]
 
 if 'collectstatic' in sys.argv:
@@ -153,7 +153,7 @@ CLOUDINARY_STORAGE = {
 }
 
 # Estas líneas ayudan a que la librería de Cloudinary encuentre lo que busca
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 WHITENOISE_MANIFEST_STRICT = False
