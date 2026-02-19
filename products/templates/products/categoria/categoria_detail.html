@@ -15,7 +15,7 @@
                             {% if subcategoria.imagen %}
                             <img src="{{ subcategoria.imagen.url }}" alt="{{subcategoria.nombre}}">
                             {% else %}
-                            <img src="{% static '/img/no-image.png' %}" alt="No Image">
+                            <img src="{% static 'build/img/no-image.png' %}" alt="No Image">
                             {% endif %}
                             <p> {{subcategoria.nombre}} </p>
                         </a>
