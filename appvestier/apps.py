@@ -1,5 +1,7 @@
 from django.apps import AppConfig
 from django.db.models.signals import post_migrate
+from django.contrib.auth.models import User
+import os
 
 class AppvestierConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
@@ -10,14 +12,16 @@ class AppvestierConfig(AppConfig):
         post_migrate.connect(create_admin_user, sender=self)
 
 def create_admin_user(sender, **kwargs):
-    from django.contrib.auth.models import User
-    import os
     
-    # Solo lo creamos si no existe
-    if not User.objects.filter(username='admin').exists():
+    username = 'denixon13' # El usuario que te dio el error
+    
+    # Usamos get_or_create para que si existe, no haga nada
+    if not User.objects.filter(username=username).exists():
         User.objects.create_superuser(
-            username='denixon13',
-            email='denixon13@gamil.com',
-            password='Deneicis29*'
+            username=username,
+            email='admin@ejemplo.com',
+            password='TuPasswordSeguro123'
         )
-        print("Superusuario creado con éxito")
+        print(f"Superusuario {username} creado con éxito")
+    else:
+        print(f"El usuario {username} ya existe, saltando creación.")
