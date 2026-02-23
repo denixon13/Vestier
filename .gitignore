@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Django
+db.sqlite3
+db.sqlite3-journal
+# No subas las imágenes locales, Railway usará el Volumen
+media/
+
+# Entorno y Secretos
+.env
+.python-version
+
+# Node / Frontend
+node_modules/
+.eslintcache
+.stylelintcache
+
+# Sistema
+.DS_Store
+Thumbs.db

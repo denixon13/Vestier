@@ -10,14 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-(ki9i8(ti$3b$#*l8fs0b=)eo7f=qqhlk7gtt=%me%i@-9v96*'
@@ -27,9 +24,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -46,6 +41,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # Para archivos estáticos en Railway
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -67,8 +63,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'products.context_processors.categoria_context',  # Custom context processor
-                'products.context_processors.productos_context',  # Custom context processor
+                'products.context_processors.categoria_context',
+                'products.context_processors.productos_context',
             ],
         },
     },
@@ -76,70 +72,38 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'vestier.wsgi.application'
 
-
 # Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'vestierdb',
         'USER': 'postgres',
         'PASSWORD': 'admin',
-        'HOST': 'localhost', 
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
-
-
 # Internationalization
-# https://docs.djangoproject.com/en/5.1/topics/i18n/
-
 LANGUAGE_CODE = 'es-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
+# --- ARCHIVOS ESTÁTICOS Y MEDIA ---
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-
+# Archivos estáticos (CSS, JS, Imágenes del diseño)
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'appvestier/static',
-]
+STATICFILES_DIRS = [BASE_DIR / 'appvestier/static']
+STATIC_ROOT = BASE_DIR / 'staticfiles' # Requerido para producción
 
-# Media files (User-uploaded content)
-MEDIA_URL = 'media/'
+# Archivos de Media (Imágenes que subes tú al Admin)
+MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+# Configuración de WhiteNoise para manejar estáticos sin Cloudinary
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'home'  # o donde quieras redirigir después de iniciar sesión
-
+LOGIN_REDIRECT_URL = 'home'

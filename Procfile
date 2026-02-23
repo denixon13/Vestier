@@ -1,0 +1,1 @@
+web: gunicorn vestier.wsgi
