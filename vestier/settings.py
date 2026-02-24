@@ -81,13 +81,27 @@ TEMPLATES = [
 WSGI_APPLICATION = 'vestier.wsgi.application'
 
 # Database
-DATABASES = {
-    'default': dj_database_url.config(
-        default='postgresql://postgres:admin@localhost:5432/vestierdb',
-        conn_max_age=600,
-        ssl_require=False if 'localhost' in os.environ.get('DATABASE_URL', '') else True
-    )
-}
+# Verifica si estamos en Railway (o cualquier entorno con DATABASE_URL)
+if os.getenv('DATABASE_URL'):
+    DATABASES = {
+        'default': dj_database_url.config(
+            conn_max_age=600,
+            ssl_require=True  # Railway SI requiere SSL
+        )
+    }
+else:
+    # Estamos en tu PC local
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'vestierdb', # Asegúrate de que este sea el nombre de tu DB local
+            'USER': 'postgres',
+            'PASSWORD': 'admin',
+            'HOST': 'localhost',
+            'PORT': '5432',
+            # AQUÍ NO PEDIMOS SSL, por eso no fallará en Windows
+        }
+    }
 
 # Internationalization
 LANGUAGE_CODE = 'es-us'
